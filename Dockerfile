@@ -21,7 +21,6 @@ RUN apk add --no-cache ca-certificates bash git openssh curl gettext jq bind-too
     && mkdir /config \
     && chmod g+rwx /config \
     && helm repo add "stable" "https://charts.helm.sh/stable" --force-update
-	
 
 # PYTHON FOR GCLOUD
 ENV PYTHONUNBUFFERED=1
