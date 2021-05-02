@@ -19,7 +19,7 @@ RUN apk add --no-cache ca-certificates bash git openssh curl gettext jq bind-too
     && chmod +x /usr/local/bin/helm \
     && chmod g+rwx /root \
     && mkdir /config \
-    && chmod g+rwx /config    
+    && chmod g+rwx /config \
     && helm repo add "stable" "https://charts.helm.sh/stable" --force-update
 	
 
