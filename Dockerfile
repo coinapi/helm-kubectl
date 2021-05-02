@@ -22,21 +22,20 @@ RUN apk add --no-cache ca-certificates bash git openssh curl gettext jq bind-too
     && chmod g+rwx /config    
     && helm repo add "stable" "https://charts.helm.sh/stable" --force-update
 	
-# GCLOUD
-# PYTHON
 
+# PYTHON FOR GCLOUD
 ENV PYTHONUNBUFFERED=1
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip setuptools
 
-# END OF PYTHON 
-
+# GCLOUD
 RUN apk add curl which bash
 RUN curl -sSL https://sdk.cloud.google.com | bash
 ENV PATH $PATH:/root/google-cloud-sdk/bin
 
-# END OF GCLOUD
+# AWS
+RUN apk add --update aws-cli
 
 WORKDIR /config
 
